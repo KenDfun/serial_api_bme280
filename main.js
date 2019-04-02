@@ -2,6 +2,12 @@
 var express = require("express");
 var app = express();
 
+// CORSを許可する
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 /* 2. listen()メソッドを実行して3000番ポートで待ち受け。*/
 var server = app.listen(3000, function(){
